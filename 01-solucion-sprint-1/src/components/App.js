@@ -10,8 +10,7 @@ import '../styles/Form.scss';
 import '../styles/Header.scss';
 import Header from './Header';
 import Dummy from './Dummy';
-import SolutionLetter from './SolutionLetters';
-import ErrorLetters from './ErrorLetters';
+import ErrorLetters from '../../../src/components/ErrorLetters';
 
 function App() {
   const [word, setWord] = useState('');
@@ -88,12 +87,18 @@ function App() {
   return (
     <div className='page'>
       <Header />
+      <ErrorLetters renderErrorLetters={renderErrorLetters} />
 
       <main className='main'>
         <section>
-          <SolutionLetter renderSolutionLetters={renderSolutionLetters()} />
-
-          <ErrorLetters renderErrorLetters={renderErrorLetters} />
+          <div className='solution'>
+            <h2 className='title'>Solución:</h2>
+            <ul className='letters'>{renderSolutionLetters()}</ul>
+          </div>
+          <div className='error'>
+            <h2 className='title'>Letras falladas:</h2>
+            <ul className='letters'>{renderErrorLetters()}</ul>
+          </div>
           <form className='form' onSubmit={handleSubmit}>
             <label className='title' htmlFor='last-letter'>
               Escribe una letra:
@@ -113,7 +118,7 @@ function App() {
           </form>
         </section>
         { /* hay que seguir con dummy */}
-        <Dummy getNumberOfErrors={getNumberOfErrors()} />
+        <Dummy />
       </main>
     </div>
   );
