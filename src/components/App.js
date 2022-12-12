@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Route, Routes} from 'react-router-dom';
 
 // api
 import getWordFromApi from '../services/api';
@@ -13,6 +14,7 @@ import Dummy from './Dummy';
 import SolutionLetter from './SolutionLetters';
 import ErrorLetters from './ErrorLetters';
 import Form from './Form';
+import Footer from './Footer';
 
 function App() {
   const [word, setWord] = useState('');
@@ -81,12 +83,15 @@ function App() {
           <SolutionLetter renderSolutionLetters={renderSolutionLetters()} />
 
           <ErrorLetters word={word} userLetters={userLetters} />
-          <Form />
+          <Form  lastLetter={lastLetter} handleKeyDown={handleKeyDown} handleChange={handleChange} />
 
         </section>
         { /* hay que seguir con dummy */}
-        <Dummy getNumberOfErrors={getNumberOfErrors()} />
+        <Dummy getNumberOfErrors={getNumberOfErrors()}  />
       </main>
+      <Routes>
+      <Route path='/footer' element={<Footer />} />
+      </Routes>
     </div>
   );
 }

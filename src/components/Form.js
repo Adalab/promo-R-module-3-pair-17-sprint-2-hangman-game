@@ -1,6 +1,6 @@
 // Estamos en el primer punto de Lifting.
 
-onst Form = () => {
+const Form = (props) => {
     const handleSubmit = (ev) => {
         ev.preventDefault();
     };
@@ -17,9 +17,9 @@ onst Form = () => {
                 type='text'
                 name='last-letter'
                 id='last-letter'
-                value={lastLetter}
-                onKeyDown={handleKeyDown}
-                onChange={handleChange}
+                value={props.lastLetter}
+                onKeyDown={props.handleKeyDown}
+                onChange={props.handleChange}
             />
         </form>
     )
