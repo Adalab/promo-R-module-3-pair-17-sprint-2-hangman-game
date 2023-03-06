@@ -3,12 +3,12 @@
   margin-bottom: 3.75rem;
 }
 
-.letters {
+.letter-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  list-style: none;
   min-height: 3.5625rem;
+  list-style: none;
 
   .letter {
     margin: 0 0.25rem;
